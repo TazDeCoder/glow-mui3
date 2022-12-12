@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Typography /> Snapshots renders correctly 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: primary.main;
+}
+
+<div>
+  <p
+    class="emotion-0"
+  >
+    Foo
+  </p>
+</div>
+`;
