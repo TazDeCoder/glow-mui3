@@ -6,7 +6,7 @@ import { ThemeProvider } from '@theme-ui/core';
 import { ColorModeProvider, useColorMode } from '@theme-ui/color-modes';
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 
-import theme from '../src/theme';
+import { defaultTheme } from '../src/themes';
 
 const channel = addons.getChannel();
 
@@ -30,7 +30,7 @@ const ThemeChanger = () => {
 
 const ThemeDecorator = (storyFn) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <ColorModeProvider>
         <ThemeChanger />
         {storyFn()}
