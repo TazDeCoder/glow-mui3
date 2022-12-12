@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@theme-ui/core"
+  },
+}

@@ -1,0 +1,20 @@
+{
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "hooks": {
+    "after:init": ["yarn lint", "yarn test"]
+  },
+  "git": {
+    "commitMessage": "chore(release): v${version}"
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": false
+  }
+}

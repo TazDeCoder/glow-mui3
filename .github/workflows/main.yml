@@ -1,0 +1,43 @@
+name: CI
+on: [push]
+jobs:
+  run-ci:
+    runs-on: ${{ matrix.os }}1
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    name: Build, lint, and test on Node 18.12.1 and ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Use Node 18.12.1
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
+
+      - name: Install deps (with cache)
+        uses: bahmutov/npm-install@v1
+
+      - name: Check types
+        run: yarn type-check
+
+      - name: Check linting
+        run: yarn lint
+
+      - name: Run tests
+        run: yarn test:ci
+
+      - name: Build storybook
+        run: yarn build-storybook
+
+      - name: Build
+        run: yarn build
+
+      - name: Check commits messages
+        uses: wagoid/commitlint-github-action@v5

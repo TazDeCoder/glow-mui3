@@ -1,0 +1,26 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+dist
+
+# misc
+.DS_Store
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# debug logs
+yarn-debug.log*
+yarn-error.log*
+
+# storybook
+storybook-static
