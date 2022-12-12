@@ -64,6 +64,12 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
+  "resolutions": {
+    "glob-parent": "^5.1.2",
+    "parse-url": "^8.1.0",
+    "trim": "^0.0.3",
+    "trim-newlines": "^3.0.1"
+  },
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@fontsource/roboto": "4.5.8",
