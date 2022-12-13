@@ -10,6 +10,7 @@ export default {
   },
   opacities: {
     backdrop: 0.5,
+    disabled: 0.38,
     tint: 0.08,
   },
   transitions: {

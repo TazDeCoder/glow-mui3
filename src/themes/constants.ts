@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export const BASE_COLORS = {
   primary: '#3498db',
-  secondary: '#8e44ad',
+  secondary: '#8e78ad',
   neutral: '#bdbdbd',
   neutralVariant: '#616161',
   info: '#0288d1',

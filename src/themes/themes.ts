@@ -13,6 +13,7 @@ export const defaultTheme = makeTheme({
   colors: {
     ...lightPalette,
     action: {
+      drag: 'rgba(0, 0, 0, 0.16)',
       active: 'rgba(0, 0, 0, 0.12)',
       hover: 'rgba(0, 0, 0, 0.08)',
     },

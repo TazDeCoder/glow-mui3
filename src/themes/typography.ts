@@ -30,11 +30,25 @@ export default {
     },
   },
   body: {
+    lg: {
+      fontFamily: 'body',
+      lineHeight: 2,
+      fontSize: 3,
+      letterSpacing: 5,
+      fontWeight: 'normal',
+    },
     md: {
       fontFamily: 'body',
       lineHeight: 1,
       fontSize: 2,
       letterSpacing: 3,
+      fontWeight: 'normal',
+    },
+    sm: {
+      fontFamily: 'body',
+      lineHeight: 0,
+      fontSize: 1,
+      letterSpacing: 4,
       fontWeight: 'normal',
     },
   },
