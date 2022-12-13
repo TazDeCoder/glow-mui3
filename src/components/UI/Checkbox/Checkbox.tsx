@@ -2,10 +2,10 @@
 /** @jsx jsx */
 
 import { forwardRef, useState } from 'react';
-import { jsx, ThemeUIStyleObject } from '@theme-ui/core';
+import { jsx, ThemeUICSSObject, ThemeUIStyleObject } from '@theme-ui/core';
 import { hideVisually } from 'polished';
 
-import { Box, BoxOwnProps, SVG, SVGProps, Flex } from '../../Utils';
+import { Box, BoxProps, BoxOwnProps, SVG, SVGProps, Flex } from '../../Utils';
 import { Typography } from '../Typography';
 import { __internalProps } from '../../shared/utils';
 import type { Assign, ForwardRef, ColorTheme } from '../../types';
@@ -25,37 +25,90 @@ export interface CheckboxProps
   color?: ColorTheme;
   /** Label associated to the component */
   label?: string;
+  /** Disabled state of the component
+   * @default false
+   */
+  disabled?: boolean;
 }
 
+const __css: ThemeUICSSObject = {
+  position: 'relative',
+  display: 'inline-block',
+  width: 18,
+  height: 18,
+  overflow: 'hidden',
+  border: '2px solid currentColor',
+  borderRadius: 2,
+  transition: 'standard',
+  '&:hover::after': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    bg: 'action.hover',
+  },
+  '&:focus::after': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    bg: 'action.active',
+  },
+};
+
 export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> = forwardRef(
-  ({ color = 'primary', label, defaultChecked = false, sx, ...props }, ref) => {
+  (
+    {
+      color = 'primary',
+      label,
+      defaultChecked = false,
+      disabled = false,
+      sx,
+      ...props
+    },
+    ref,
+  ) => {
     const [checked, setChecked] = useState(defaultChecked);
 
     const toggleHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
-      setChecked(evt.target.checked);
+      if (!disabled) {
+        setChecked(evt.target.checked);
+      }
     };
 
     const style: ThemeUIStyleObject = {
-      ...(checked && {
-        bg: `${color}.main`,
-        border: 'none',
-        '&:hover::after': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          bg: 'action.hover',
-          borderRadius: 'inherit',
-        },
-      }),
-      ...(!checked && {
-        borderColor:
-          color === 'primary' || color === 'secondary'
-            ? 'surface.onMain'
-            : `${color}.main`,
-      }),
+      ...(!disabled
+        ? {
+          cursor: 'pointer',
+          ...(checked
+            ? {
+              bg: `${color}.main`,
+              border: 'none',
+            }
+            : {
+              borderColor:
+                    color === 'primary' || color === 'secondary'
+                      ? 'surface.onMain'
+                      : `${color}.main`,
+              transition: 'unset',
+            }),
+        }
+        : {
+          opacity: 'disabled',
+          bg: checked && 'surface.onMain',
+          borderColor: 'surface.onMain',
+          userSelect: 'none',
+          ...(checked && {
+            border: 'none',
+          }),
+          '&:hover::after, &:focus::after': {
+            content: 'none',
+          },
+        }),
     };
 
     return (
@@ -69,32 +122,22 @@ export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> = forwardRef(
               checked={checked}
               onChange={toggleHandler}
               {...props}
+              {...({ disabled, ...props } as Omit<
+              BoxProps,
+              'checked' | 'type'
+              >)}
               {...__internalProps({
                 __css: {
                   ...hideVisually(),
                 },
               })}
             />
-            <Box
-              sx={style}
-              {...__internalProps({
-                __css: {
-                  position: 'relative',
-                  display: 'inline-block',
-                  width: 18,
-                  height: 18,
-                  border: '2px solid currentColor',
-                  borderRadius: 2,
-                  cursor: 'pointer',
-                  transition: 'standard',
-                },
-              })}
-            >
+            <Box sx={style} {...__internalProps({ __css })}>
               {checked && (
                 <CheckboxChecked
                   size={18}
                   viewBox="0 0 24 24"
-                  color={`${color}.onMain`}
+                  color={disabled ? 'surface.main' : `${color}.onMain`}
                 />
               )}
             </Box>

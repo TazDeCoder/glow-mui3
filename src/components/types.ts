@@ -1,3 +1,4 @@
+// Common types
 export type ColorTheme =
   | 'primary'
   | 'secondary'
@@ -6,11 +7,7 @@ export type ColorTheme =
   | 'warning'
   | 'success';
 
-export type TextVariant = 'headline' | 'body' | 'label';
-
-export type TextSize = 'lg' | 'md' | 'sm';
-
-// Util types
+// Utility types
 export type Assign<T, U> = {
   [P in keyof (T & U)]: P extends keyof T
     ? T[P]

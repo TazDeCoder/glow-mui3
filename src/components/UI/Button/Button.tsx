@@ -23,6 +23,10 @@ export interface ButtonProps
    * @default 'filled'
    */
   variant?: 'filled' | 'outlined' | 'text';
+  /** Disabled state of the component
+   * @default false
+   */
+  disabled?: boolean;
 }
 
 const __css: ThemeUICSSObject = {
@@ -30,9 +34,10 @@ const __css: ThemeUICSSObject = {
   minWidth: 48,
   height: 40,
   px: 24,
+  overflow: 'hidden',
   border: '1px solid currentColor',
   borderRadius: 'full',
-  cursor: 'pointer',
+  transition: 'standard',
   '&:hover::after': {
     content: '""',
     position: 'absolute',
@@ -41,7 +46,6 @@ const __css: ThemeUICSSObject = {
     width: '100%',
     height: '100%',
     bg: 'action.hover',
-    borderRadius: 'inherit',
   },
   '&:focus::after': {
     content: '""',
@@ -51,7 +55,6 @@ const __css: ThemeUICSSObject = {
     width: '100%',
     height: '100%',
     bg: 'action.active',
-    borderRadius: 'inherit',
   },
 };
 
@@ -62,36 +65,61 @@ export const Button: ForwardRef<HTMLButtonElement, ButtonProps> = forwardRef(
       color = 'primary',
       variant = 'filled',
       type = 'button',
+      disabled = false,
       sx,
       ...props
     }: ButtonProps,
     ref,
   ) => {
     const style: ThemeUIStyleObject = {
-      ...(variant === 'filled' && {
-        color: `${color}.container`,
-        bg: `${color}.main`,
-        transition: 'emphasized',
-        '&:hover': {
-          boxShadow: 'sm',
-        },
-      }),
-      ...(variant === 'outlined' && {
-        bg: 'transparent',
-        borderColor: 'outline.main',
-        transition: 'standard',
-        color: `${color}.main`,
-        '&:focus': {
-          borderColor: `${color}.main`,
-        },
-        '&:active': {
-          borderColor: 'outline.main',
-        },
-      }),
-      ...(variant === 'text' && {
-        bg: 'transparent',
-        borderColor: 'transparent',
-      }),
+      ...(!disabled
+        ? {
+          cursor: 'pointer',
+          ...(variant === 'filled' && {
+            color: `${color}.container`,
+            bg: `${color}.main`,
+            transition: 'emphasized',
+            '&:hover': {
+              boxShadow: 'sm',
+            },
+          }),
+          ...(variant === 'outlined' && {
+            color: `${color}.main`,
+            bg: 'transparent',
+            borderColor: 'outline.main',
+            '&:focus': {
+              borderColor: `${color}.main`,
+            },
+            '&:active': {
+              borderColor: 'outline.main',
+            },
+          }),
+          ...(variant === 'text' && {
+            bg: 'transparent',
+            borderColor: 'transparent',
+          }),
+        }
+        : {
+          opacity: 'disabled',
+          color: 'surface.onMain',
+          bg: 'transparent',
+          borderColor:
+              variant === 'outlined' ? 'surface.onMain' : 'transparent',
+          userSelect: 'none',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            opacity: 0.12,
+            bg: variant === 'filled' && 'surface.onMain',
+          },
+          '&:hover::after, &:focus::after': {
+            content: 'none',
+          },
+        }),
     };
 
     return (
@@ -99,12 +127,18 @@ export const Button: ForwardRef<HTMLButtonElement, ButtonProps> = forwardRef(
         ref={ref}
         as="button"
         sx={{ ...style, ...sx }}
-        {...({ type, ...props } as BoxProps)}
+        {...({ type, disabled, ...props } as BoxProps)}
         {...__internalProps({ __css })}
       >
         <Typography
           variant="label"
-          color={variant === 'filled' ? `${color}.onMain` : `${color}.main`}
+          color={
+            disabled
+              ? 'surface.onMain'
+              : variant === 'filled'
+                ? `${color}.onMain`
+                : `${color}.main`
+          }
         >
           {children}
         </Typography>

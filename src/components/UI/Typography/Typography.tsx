@@ -4,18 +4,23 @@
 import { forwardRef } from 'react';
 import { jsx } from '@theme-ui/core';
 
-import { Box, BoxProps } from '../../Utils';
-import type { ForwardRef, TextVariant, TextSize } from '../../types';
+import { Box as _Box, BoxOwnProps, BoxProps } from '../../Utils';
+import type { Assign, ForwardRef } from '../../types';
 
-export interface TypographyProps extends BoxProps {
+const Box = _Box as React.ForwardRefExoticComponent<
+BoxProps & React.RefAttributes<HTMLParagraphElement>
+>;
+
+export interface TypographyProps
+  extends Assign<React.ComponentPropsWithRef<'p'>, BoxOwnProps> {
   /** Text variant of the component
    * @default 'body'
    */
-  variant?: TextVariant;
+  variant?: 'headline' | 'body' | 'label';
   /** Text size of the component
    * @default 'md'
    */
-  size?: TextSize;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export const Typography: ForwardRef<HTMLParagraphElement, TypographyProps> =
@@ -24,14 +29,14 @@ export const Typography: ForwardRef<HTMLParagraphElement, TypographyProps> =
       {
         as,
         variant = 'body',
-        size = 'md',
+        size = 'lg',
         color = 'primary.main',
         sx,
         ...props
       }: TypographyProps,
       ref,
     ) => {
-      let Component: React.ElementType = 'p';
+      let Component: React.ElementType = as || 'p';
 
       if (!as) {
         if (variant === 'headline') {
@@ -48,10 +53,10 @@ export const Typography: ForwardRef<HTMLParagraphElement, TypographyProps> =
         <Box
           ref={ref}
           as={Component}
-          color={color}
           variant={`${variant}.${size}`}
+          color={color}
           sx={sx}
-          {...props}
+          {...(props as BoxProps)}
         />
       );
     },
