@@ -5,11 +5,17 @@ import { forwardRef, useState } from 'react';
 import { jsx, ThemeUIStyleObject } from '@theme-ui/core';
 import { hideVisually } from 'polished';
 
-import { Box, BoxOwnProps } from '../../Utils';
+import { Box, BoxOwnProps, SVG, SVGProps, Flex } from '../../Utils';
 import { Typography } from '../Typography';
-
-import { baseStyles, checkedStyles, labelStyles, iconStyles } from './styles';
+import { __internalProps } from '../../shared/utils';
 import type { Assign, ForwardRef, ColorTheme } from '../../types';
+
+// https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Acheck%3AFILL%400%3Bwght%40400%3BGRAD%40200%3Bopsz%4048
+const CheckboxChecked: React.FC<SVGProps> = (props: SVGProps) => (
+  <SVG {...props}>
+    <path d="m9.55 18.55-6.3-6.3 1.875-1.875L9.55 14.8l9.375-9.375L20.8 7.3Z" />
+  </SVG>
+);
 
 export interface CheckboxProps
   extends Assign<React.ComponentPropsWithRef<'input'>, BoxOwnProps> {
@@ -25,15 +31,24 @@ export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> = forwardRef(
   ({ color = 'primary', label, defaultChecked = false, sx, ...props }, ref) => {
     const [checked, setChecked] = useState(defaultChecked);
 
-    const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const toggleHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
       setChecked(evt.target.checked);
     };
 
-    const stateStyles: ThemeUIStyleObject = {
+    const style: ThemeUIStyleObject = {
       ...(checked && {
-        ...checkedStyles,
         bg: `${color}.main`,
-        borderColor: `${color}.main`,
+        border: 'none',
+        '&:hover::after': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          bg: 'action.hover',
+          borderRadius: 'inherit',
+        },
       }),
       ...(!checked && {
         borderColor:
@@ -44,55 +59,52 @@ export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> = forwardRef(
     };
 
     return (
-      <Box sx={{ width: 'min-content' }}>
-        <Box
-          as="label"
-          sx={{
-            ...labelStyles,
-            ...sx,
-          }}
-        >
-          <Box
-            sx={{
-              display: 'inline-block',
-              cursor: 'pointer',
-              verticalAlign: 'top',
-            }}
-          >
+      <Box width="min-content">
+        <Flex as="label" alignItems="center" gap={12} sx={sx}>
+          <Box display="inline-block" verticalAlign="top">
             <Box
               ref={ref}
               as="input"
               type="checkbox"
               checked={checked}
-              onChange={handleChange}
-              sx={{ ...hideVisually() }}
+              onChange={toggleHandler}
               {...props}
+              {...__internalProps({
+                __css: {
+                  ...hideVisually(),
+                },
+              })}
             />
             <Box
-              sx={{
-                ...baseStyles,
-                ...stateStyles,
-              }}
+              sx={style}
+              {...__internalProps({
+                __css: {
+                  position: 'relative',
+                  display: 'inline-block',
+                  width: 18,
+                  height: 18,
+                  border: '2px solid currentColor',
+                  borderRadius: 2,
+                  cursor: 'pointer',
+                  transition: 'standard',
+                },
+              })}
             >
-              <Box
-                as="svg"
-                sx={{
-                  ...iconStyles,
-                  stroke: checked && `${color}.onMain`,
-                  visibility: checked ? 'visible' : 'hidden',
-                }}
-                {...({ viewBox: '0 0 24 24' } as {})}
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </Box>
+              {checked && (
+                <CheckboxChecked
+                  size={18}
+                  viewBox="0 0 24 24"
+                  color={`${color}.onMain`}
+                />
+              )}
             </Box>
           </Box>
           {label && (
-            <Typography variant="label" size="lg" color="bg.onMain">
+            <Typography variant="label" color="bg.onMain">
               {label}
             </Typography>
           )}
-        </Box>
+        </Flex>
       </Box>
     );
   },

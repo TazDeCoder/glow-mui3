@@ -10,13 +10,13 @@ exports[`<Button /> Snapshots renders correctly 1`] = `
   height: 40px;
   padding-left: 24px;
   padding-right: 24px;
-  border: 1px solid;
+  border: 1px solid currentColor;
   border-radius: full;
   cursor: pointer;
-  -webkit-transition: emphasized;
-  transition: emphasized;
   color: primary.container;
   background-color: primary.main;
+  -webkit-transition: emphasized;
+  transition: emphasized;
 }
 
 .emotion-0:hover::after {

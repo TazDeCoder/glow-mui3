@@ -30,7 +30,6 @@ exports[`<Checkbox /> Snapshots should render correctly 1`] = `
   margin: 0;
   min-width: 0;
   display: inline-block;
-  cursor: pointer;
   vertical-align: top;
 }
 
@@ -57,20 +56,12 @@ exports[`<Checkbox /> Snapshots should render correctly 1`] = `
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2px solid;
+  border: 2px solid currentColor;
   border-radius: 2px;
+  cursor: pointer;
   -webkit-transition: standard;
   transition: standard;
   border-color: surface.onMain;
-}
-
-.emotion-5 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  fill: none;
-  stroke-width: 3;
-  visibility: hidden;
 }
 
 <div>
@@ -89,16 +80,7 @@ exports[`<Checkbox /> Snapshots should render correctly 1`] = `
         />
         <div
           class="emotion-4"
-        >
-          <svg
-            class="emotion-5"
-            viewBox="0 0 24 24"
-          >
-            <polyline
-              points="20 6 9 17 4 12"
-            />
-          </svg>
-        </div>
+        />
       </div>
     </label>
   </div>
