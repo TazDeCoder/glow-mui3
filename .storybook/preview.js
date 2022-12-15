@@ -14,8 +14,12 @@ const ThemeChanger = () => {
   const [, setColorMode] = useColorMode();
 
   const toggleDarkModeHandler = (isDark) => {
-    setColorMode(isDark ? 'light' : 'dark');
+    setColorMode(isDark ? 'dark' : 'light');
   };
+
+  useEffect(() => {
+    setColorMode('dark');
+  }, []);
 
   useEffect(() => {
     channel.on(DARK_MODE_EVENT_NAME, toggleDarkModeHandler);
