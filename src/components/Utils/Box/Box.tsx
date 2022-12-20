@@ -1,15 +1,45 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
-import { forwardRef } from 'react';
-import { useTheme, CSSObject, ArrayInterpolation } from '@emotion/react';
-import { jsx, ThemeUICSSProperties, ThemeUIStyleObject } from '@theme-ui/core';
-import { css, get } from '@theme-ui/css';
+// Repurposed from theme-ui
+// https://github.com/system-ui/theme-ui/blob/10b33dee2f188e440600e02a4f2bf32d402588d0/packages/components/src/Box.tsx
 
-import type { Assign } from '../../types';
+import { forwardRef } from 'react';
+import {
+  jsx,
+  useTheme,
+  CSSObject,
+  ArrayInterpolation,
+  Interpolation,
+} from '@emotion/react';
+import {
+  css,
+  get,
+  ThemeUICSSProperties,
+  ThemeUIStyleObject,
+} from '@theme-ui/css';
+
+import {
+  pickSystemProps,
+  __ThemeUIComponentsInternalProps,
+} from '../../shared/utils';
+import type { Assign, ForwardRef } from '../../types';
 
 const boxSystemProps = [
   // system props inherited from styled-system (https://styled-system.com/table)
+  // layout props
+  'width',
+  'height',
+  'minWidth',
+  'maxWidth',
+  'minHeight',
+  'maxHeight',
+  'size',
+  'display',
+  'verticalAlign',
+  'overflow',
+  'overflowX',
+  'overflowY',
   // scale props
   'margin',
   'marginTop',
@@ -54,11 +84,10 @@ export interface BoxOwnProps extends BoxSystemProps {
    * @default 'div'
    */
   as?: React.ElementType;
+  /** Variant to be used for the component */
   variant?: string;
-  /** System style prop to extend component's styles */
+  css?: Interpolation<any>;
   sx?: ThemeUIStyleObject;
-  // Content of the component
-  children?: React.ReactNode;
 }
 
 export interface BoxProps
@@ -67,49 +96,49 @@ export interface BoxProps
   'ref'
   > {}
 
-const pickSystemProps = (props: BoxOwnProps) => {
-  const res: Partial<Pick<BoxOwnProps, BoxSystemPropsKeys>> = {};
-
-  for (let i = 0; i < boxSystemProps.length; i += 1) {
-    const key = boxSystemProps[i];
-    // ts(2590): union type too complex
-    (res as any)[key] = props[key];
-  }
-
-  return res;
-};
-
 const baseStyles: CSSObject = {
   boxSizing: 'border-box',
   margin: 0,
   minWidth: 0,
 };
 
-export const Box = forwardRef<any, BoxProps>(
-  ({ as: Component = 'div', variant, sx, ...props }: BoxProps, ref) => {
-    const theme = useTheme();
+export const Box: ForwardRef<any, BoxProps & __ThemeUIComponentsInternalProps> =
+  forwardRef(
+    (
+      { __css, as: Component = 'div', variant, css: cssProp, sx, ...props },
+      ref,
+    ) => {
+      const theme = useTheme();
 
-    const variantInTheme = get(theme, variant);
-    const variantStyles = variantInTheme && css(variantInTheme)(theme);
-    const sxPropStyles = css(sx)(theme);
-    const systemPropsStyles = css(pickSystemProps(props))(theme);
+      const __cssStyles = css(__css)(theme);
 
-    const style: ArrayInterpolation<unknown> = [
-      baseStyles,
-      variantStyles,
-      sxPropStyles,
-      systemPropsStyles,
-    ];
+      const variantInTheme = get(theme, variant);
+      const variantStyles = variantInTheme && css(variantInTheme)(theme);
 
-    const rest: Partial<Omit<BoxProps, BoxSystemPropsKeys>> = { ...props };
+      const sxPropStyles = css(sx)(theme);
 
-    for (let i = 0; i < boxSystemProps.length; i += 1) {
-      // Remove all system props from props as no longer needed
-      boxSystemProps.forEach((name) => {
-        delete (rest as Record<string, unknown>)[name];
-      });
-    }
+      const systemPropsStyles = css(
+        pickSystemProps<BoxOwnProps, BoxSystemPropsKeys>(props, boxSystemProps),
+      )(theme);
 
-    return <Component ref={ref} css={style} {...rest} />;
-  },
-);
+      const style: ArrayInterpolation<unknown> = [
+        baseStyles,
+        __cssStyles,
+        variantStyles,
+        sxPropStyles,
+        systemPropsStyles,
+        cssProp,
+      ];
+
+      const rest: Partial<Omit<BoxProps, BoxSystemPropsKeys>> = { ...props };
+
+      for (let i = 0; i < boxSystemProps.length; i += 1) {
+        // Remove all system props from props as no longer needed
+        boxSystemProps.forEach((name) => {
+          delete (rest as Record<string, unknown>)[name];
+        });
+      }
+
+      return <Component ref={ref} css={style} {...rest} />;
+    },
+  );

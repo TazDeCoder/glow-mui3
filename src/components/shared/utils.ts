@@ -1,4 +1,5 @@
-/* eslint-disable import/prefer-default-export */
+import type { ThemeUICSSObject } from '@theme-ui/css';
+
 export function pickSystemProps<T, P extends keyof T>(
   props: T,
   systemProps: readonly string[],
@@ -12,4 +13,16 @@ export function pickSystemProps<T, P extends keyof T>(
   }
 
   return res;
+}
+
+/** @internal */
+export function __internalProps(props: __ThemeUIComponentsInternalProps) {
+  return props as {};
+}
+
+/**
+ * @internal Props used by Theme UI Components not intended for user code.
+ */
+export interface __ThemeUIComponentsInternalProps {
+  __css?: ThemeUICSSObject;
 }

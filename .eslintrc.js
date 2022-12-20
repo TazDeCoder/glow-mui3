@@ -85,6 +85,21 @@ module.exports = {
     // disabled type-aware linting due to performance considerations
     '@typescript-eslint/return-await': 'off',
     'no-return-await': 'error',
+    // allow dangling underscores to indicate "private" usage
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: ['interface', 'typeParameter'],
+        format: ['PascalCase'],
+        leadingUnderscore: 'allowDouble',
+      },
+      {
+        selector: ['function'],
+        format: ['PascalCase', 'camelCase'],
+        leadingUnderscore: 'allowDouble',
+      },
+    ],
+    'no-underscore-dangle': 'off',
 
     // doesn't work well with nested/custom components
     'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
