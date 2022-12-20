@@ -1,5 +1,21 @@
 
 
+# [0.2.0](https://github.com/TazDeCoder/glow-mui3/compare/0.1.0...0.2.0) (2022-12-20)
+
+
+### Bug Fixes
+
+* **storybook:** update incorrect import for default theme ([1ca8606](https://github.com/TazDeCoder/glow-mui3/commit/1ca860635f6f998ca473c18fd7b47d11303b5e5d))
+
+
+### Features
+
+* add new components ([b999b3e](https://github.com/TazDeCoder/glow-mui3/commit/b999b3e6eb83d5814314f7af6c16a89569ebfad0))
+* **box:** update component ([4793157](https://github.com/TazDeCoder/glow-mui3/commit/47931575945bc99be810b934041b018270b73d66))
+* **components:** add pickSystemProps utility ([f085bb1](https://github.com/TazDeCoder/glow-mui3/commit/f085bb1360a4d69962cf56c0cb83edc0999bacd7))
+* **themes:** add new variants, scales, and colors ([07bcb86](https://github.com/TazDeCoder/glow-mui3/commit/07bcb8600a416571ca9174917fa02989b1dd51c9))
+* **ui:** update existing components ([9701164](https://github.com/TazDeCoder/glow-mui3/commit/97011645d173f05d5bd16369a5fbcc800e5efa7a))
+
 # 0.1.0 (2022-12-12)
 
 
