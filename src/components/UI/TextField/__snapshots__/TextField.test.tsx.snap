@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> Snapshots renders correctly 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  overflow: hidden;
+  background-color: surface.variant;
+  border-bottom: 1px solid currentColor;
+  border-top-left-radius: xs;
+  border-top-right-radius: xs;
+  cursor: pointer;
+  color: surface.onVariant;
+  background-color: surface.main;
+}
+
+.emotion-0:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: action.hover;
+  border-radius: inherit;
+}
+
+.emotion-0:focus-within {
+  cursor: text;
+  caret-color: primary.main;
+  border-width: 2px;
+  border-color: primary.main;
+}
+
+.emotion-0>input:not(:placeholder-shown)~span,
+.emotion-0>input:focus~span {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  position: initial;
+  padding-top: 8px;
+  justify-self: flex-start;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+  color: primary.main;
+}
+
+.emotion-0>input:not(:placeholder-shown),
+.emotion-0>input:focus {
+  padding-bottom: 8px;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  color: surface.onMain;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+
+<div>
+  <label
+    class="emotion-0"
+  >
+    <input
+      class="emotion-1"
+      placeholder=" "
+    />
+  </label>
+</div>
+`;

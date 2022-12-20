@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SVG /> Snapshots renders correctly 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 24px;
+  height: 24px;
+}
+
+<div>
+  <svg
+    class="emotion-0"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    Foo
+    Sorry, your browser does not support inline SVG
+  </svg>
+</div>
+`;

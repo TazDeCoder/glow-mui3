@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LinearProgress /> Snapshots renders correctly 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 100%;
+    left: -100%;
+  }
+
+  60% {
+    width: 0%;
+    left: 100%;
+  }
+
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  position: relative;
+  height: 4px;
+  overflow: hidden;
+  background-color: surface.variant;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+  width: 100%;
+  border: none;
+  -webkit-transition: standard;
+  transition: standard;
+  -webkit-animation: animation-0 3.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+  animation: animation-0 3.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.emotion-2::-webkit-progress-bar {
+  background-color: primary.main;
+}
+
+.emotion-2::-moz-progress-bar {
+  background-color: primary.main;
+}
+
+<div>
+  <div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <progress
+        aria-label="progress-indeterminate"
+        class="emotion-2"
+      />
+    </div>
+  </div>
+</div>
+`;
