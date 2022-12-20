@@ -1,7 +1,7 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Checkbox } from './Checkbox';
-import { Box } from '../../Utils';
+import { Flex } from '../../Utils';
 
 export default {
   title: 'Components/UI/Checkbox',
@@ -16,18 +16,12 @@ export const Default: ComponentStory<typeof Checkbox> = (args) => (
 );
 
 export const Colors: ComponentStory<typeof Checkbox> = (args) => (
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      rowGap: 2,
-    }}
-  >
+  <Flex flexDirection="column" rowGap={2}>
     <Checkbox {...args} color="primary" label="Primary" />
     <Checkbox {...args} color="secondary" label="Secondary" />
     <Checkbox {...args} color="info" label="Info" />
     <Checkbox {...args} color="error" label="Error" />
     <Checkbox {...args} color="warning" label="Warning" />
     <Checkbox {...args} color="success" label="Success" />
-  </Box>
+  </Flex>
 );

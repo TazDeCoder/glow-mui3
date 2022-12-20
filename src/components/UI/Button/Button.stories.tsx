@@ -1,7 +1,7 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Button } from './Button';
-import { Box } from '../../Utils';
+import { Flex } from '../../Utils';
 
 export default {
   title: 'Components/UI/Button',
@@ -16,7 +16,7 @@ export const Default: ComponentStory<typeof Button> = (args) => (
 );
 
 export const Colors: ComponentStory<typeof Button> = (args) => (
-  <Box sx={{ display: 'flex', columnGap: 2 }}>
+  <Flex gap={2}>
     <Button {...args} color="primary">
       Primary
     </Button>
@@ -35,11 +35,11 @@ export const Colors: ComponentStory<typeof Button> = (args) => (
     <Button {...args} color="success">
       Success
     </Button>
-  </Box>
+  </Flex>
 );
 
 export const Variants: ComponentStory<typeof Button> = (args) => (
-  <Box sx={{ display: 'flex', columnGap: 2 }}>
+  <Flex gap={2}>
     <Button {...args} variant="filled">
       Filled
     </Button>
@@ -49,5 +49,5 @@ export const Variants: ComponentStory<typeof Button> = (args) => (
     <Button {...args} variant="text">
       Text
     </Button>
-  </Box>
+  </Flex>
 );

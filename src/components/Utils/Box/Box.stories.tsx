@@ -9,12 +9,14 @@ export default {
 
 export const Default: ComponentStory<typeof Box> = (args) => (
   <Box
-    sx={{ width: '90%', height: 240, variant: 'headline.sm' }}
+    width="90%"
+    height={240}
+    variant="headline.sm"
+    bg="primary.main"
+    color="primary.onMain"
     p={2}
     mt={2}
     mx="auto"
-    bg="primary.main"
-    color="primary.onMain"
     {...args}
   >
     Box

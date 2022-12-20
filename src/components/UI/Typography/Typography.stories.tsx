@@ -1,7 +1,7 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Typography } from './Typography';
-import { Box } from '../../Utils';
+import { Flex } from '../../Utils';
 
 export default {
   title: 'Components/UI/Typography',
@@ -16,15 +16,21 @@ export const Default: ComponentStory<typeof Typography> = (args) => (
 );
 
 export const Variants: ComponentStory<typeof Typography> = (args) => (
-  <Box sx={{ display: 'flex', flexDirection: 'column', rowGap: 2 }}>
+  <Flex flexDirection="column" gap={2}>
     <Typography {...args} variant="headline" size="sm">
       Headline Small
+    </Typography>
+    <Typography {...args} variant="body" size="lg">
+      Body Large
     </Typography>
     <Typography {...args} variant="body" size="md">
       Body Medium
     </Typography>
+    <Typography {...args} variant="body" size="sm">
+      Body Small
+    </Typography>
     <Typography {...args} variant="label" size="lg">
       Label Large
     </Typography>
-  </Box>
+  </Flex>
 );
