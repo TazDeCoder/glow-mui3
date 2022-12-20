@@ -134,6 +134,7 @@
   },
   "peerDependencies": {
     "@emotion/react": "^11",
+    "@theme-ui/color-modes": "^0.15",
     "@theme-ui/core": "^0.15",
     "react": "^17",
     "react-dom": "^17"
