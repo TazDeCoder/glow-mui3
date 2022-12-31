@@ -69,6 +69,15 @@ const App = () => (
 );
 ```
 
+## Roadmap
+
+- [ ] **CircularProgress**
+- [ ] **AppBar**
+- [ ] **Switch**
+- [ ] **Divider**
+
+The design for these components are derived from the official [Material Design 3](https://m3.material.io/components) site
+
 ## Development
 
 For a brief guide on how to contribute to this project can be found [here](https://github.com/TazDeCoder/glow-mui3/blob/main/CONTRIBUTING).
