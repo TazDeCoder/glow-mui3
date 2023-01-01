@@ -67,7 +67,7 @@
   "resolutions": {
     "glob-parent": "^5.1.2",
     "parse-url": "^8.1.0",
-    "trim": "^0.0.3",
+    "trim": "^1.0.0",
     "trim-newlines": "^3.0.1"
   },
   "dependencies": {
