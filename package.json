@@ -136,8 +136,8 @@
     "@emotion/react": "^11",
     "@theme-ui/color-modes": "^0.15",
     "@theme-ui/core": "^0.15",
-    "react": "^17",
-    "react-dom": "^17"
+    "react": "^17 || ^18.0.0",
+    "react-dom": "^17 || ^18.0.0"
   },
   "packageManager": "yarn@3.3.1",
   "engines": {
