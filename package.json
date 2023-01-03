@@ -65,7 +65,7 @@
     "trailingComma": "all"
   },
   "resolutions": {
-    "glob-parent": "^5.1.2",
+    "glob-parent": "^6.0.0",
     "parse-url": "^8.1.0",
     "trim": "^0.0.3",
     "trim-newlines": "^3.0.1"
