@@ -130,11 +130,13 @@ export const TextField: ForwardRef<HTMLInputElement, TextFieldProps> =
             {...__internalProps({
               __css: {
                 order: 2,
+                position: 'relative',
                 variant: 'body.lg',
                 color: 'surface.onMain',
-                bg: 'inherit',
+                bg: 'transparent',
                 border: 'none',
                 outline: 'none',
+                cursor: 'inherit',
                 appearance: 'none',
               },
             })}
