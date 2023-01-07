@@ -30,7 +30,7 @@ exports[`<ListItem /> Snapshots renders correctly 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:nth-last-child(n + 1) {
+.emotion-1:nth-last-of-type(n + 1) {
   padding-left: 16px;
 }
 
@@ -66,7 +66,6 @@ exports[`<ListItem /> Snapshots renders correctly 1`] = `
   background-color: action.active;
   border-radius: inherit;
   color: surface.variant;
-  z-index: 1;
 }
 
 .emotion-2 {

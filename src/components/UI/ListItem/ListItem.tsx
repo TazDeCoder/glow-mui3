@@ -26,7 +26,7 @@ const __itemCss: ThemeUICSSObject = {
   py: 2,
   bg: 'surface.main',
   borderRadius: 'none',
-  '&:nth-last-child(n + 1)': {
+  '&:nth-last-of-type(n + 1)': {
     pl: 3,
   },
   '&:focus::after': {
@@ -68,9 +68,7 @@ export const ListItem: ForwardRef<HTMLLIElement, ListItemProps> = forwardRef(
             height: '100%',
             bg: isDrag ? 'action.drag' : 'action.active',
             borderRadius: 'inherit',
-            boxShadow: isDrag && 'md',
             color: 'surface.variant',
-            zIndex: 1,
           },
         }
         : {
