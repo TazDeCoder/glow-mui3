@@ -1,5 +1,3 @@
-import '@fontsource/roboto';
-
 export default {
   fonts: {
     body: '"Roboto", sans-serif',
