@@ -26,23 +26,23 @@ export interface LinearProgressProps
   label?: string;
 }
 
-const indeterminate1Keyframe = keyframes`
-  0% {
-    width: 100%;
-    left: -100%;
-  }
-  60% {
-    width: 0%;
-    left: 100%;
-  }
-  100% {
-    width: 0%;
-    left: 100%;
-  }
-`;
+const indeterminate1Keyframe = keyframes({
+  '0%': {
+    width: '100%',
+    left: '-100%',
+  },
+  '60%': {
+    width: '0%',
+    left: '100%',
+  },
+  '100%': {
+    width: '0%',
+    left: '100%',
+  },
+});
 
 // TODO: Add follow-up keyframe of first
-// const indeterminate2Keyframe = keyframes``;
+// const indeterminate2Keyframe = keyframes({});
 
 const __progressCss: ThemeUICSSObject = {
   position: 'absolute',
