@@ -1,5 +1,14 @@
 
 
+## [0.2.1](https://github.com/TazDeCoder/glow-mui3/compare/0.2.0...0.2.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* **listitem:** remove z-index of component ([10637b6](https://github.com/TazDeCoder/glow-mui3/commit/10637b69ab6c5bf98da257b0e6629c8eeb420a80))
+* **textfield:** improve component input area ([ea1d351](https://github.com/TazDeCoder/glow-mui3/commit/ea1d3517b1da11e8935b8e2d40fa2b8a4340ffff))
+* **themes:** remove global import of "Roboto" font ([8308caf](https://github.com/TazDeCoder/glow-mui3/commit/8308caf5e9d19939bea2761e22d84a91143ecc7c))
+
 # [0.2.0](https://github.com/TazDeCoder/glow-mui3/compare/0.1.0...0.2.0) (2022-12-20)
 
 
