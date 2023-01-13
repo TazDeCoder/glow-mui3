@@ -22,10 +22,8 @@ To setup this project in your local machine:
    ```sh
    $ yarn storybook
    ```
-6. Before contributing any changes to our repo, make sure to run this command:
-   ```sh
-   $ yarn prepare
-   ```
+
+**NOTE: If you plan to contribute any changes to our repo, make sure husky is working in your project setup. To test this create a commit and make sure that the correct hooks are running**
 
 ## Code contribution
 
@@ -37,7 +35,7 @@ To have your code appear in our awesome codebase, these are the following steps 
 4. Finally, open a pull request explaining the changes you've made, referencing the issue you wish to resolve, and one of our maintainers will review your code
 5. If everything looks good, then your code will be added to our codebase!
 
-**It's important to note that all pull requests must be "merge-worthy" (deployable) since our project follows the [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) branching strategy.**
+**NOTE: all pull requests for this repo must be "merge-worthy" (deployable) since our project follows the [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) branching strategy**
 
 ## Reporting bugs
 
@@ -48,7 +46,7 @@ To report a code bug:
 1. Open an issue describing the bug that you found in the library, how to reproduce that specific bug, system specs of your computer, and if you would like (and greatly appreciated) include a proposed solution for the bug
 2. A maintainer of this repo will have a look over this issue to help resolve it with you, and if your bug is valid - meaning related to our code - we will assign it to either you, if you insist, or one of our maintainers to handle this bug
 
-## Styleguides
+## Style Guides
 
 ### Commit Messages
 
@@ -89,10 +87,4 @@ Our library is coded in TypeScript which means we don't accept JavaScript files 
 
 There are many ways to skin a cat, therefore we have rules to enforce the style of the code we want, and so it's important that we have you adhere to our [eslint rules](https://github.com/TazDeCoder/glow-mui3/blob/main/.eslintrc.js) and [editor rules](https://github.com/TazDeCoder/glow-mui3/blob/main/.editorconfig) to ensure your code is in harmony with our codebase, and therefore not look out of place.
 
-The recommended way to enforce this via this command:
-
-```sh
-$ yarn format:write && yarn lint:fix
-```
-
-**Prettier is recommended here to improve the formatting of your code**
+Luckily for you, you don't have worry about this since this project is setup to ensure your code is set up to this standard 😄

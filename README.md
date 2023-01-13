@@ -25,11 +25,11 @@ Make sure your project meets the following requirements in order for the package
 ### Run
 
 ```sh
-$ npm install glow-mui3 @theme-ui/core @emotion/react
+$ npm install glow-mui3 theme-ui @emotion/react // optional @fontsource/roboto
 ```
 
 ```sh
-$ yarn add glow-mui3 @theme-ui/core @emotion/react
+$ yarn add glow-mui3 theme-ui @emotion/react // optional @fontsource/roboto
 ```
 
 ### Usage
@@ -44,7 +44,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-import { ThemeProvider } from '@theme-ui/core';
+import { ThemeProvider } from 'theme-ui';
 import { defaultTheme } from 'glow-mui3';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -88,6 +88,6 @@ For a brief guide on how to contribute to this project can be found [here](https
 
 ## License
 
-Copyright © 2022 [Tarwat Uddin](https://github.com/TazDeCoder)
+Copyright © 2023 [Tarwat Uddin](https://github.com/TazDeCoder)
 
 This project is [MIT](https://github.com/TazDeCoder/glow-mui3/blob/main/LICENSE) licensed.
