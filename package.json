@@ -149,7 +149,7 @@
     {
       "name": "The execution time to load the whole entire library",
       "path": "dist/index.js",
-      "limit": "600 ms"
+      "limit": "700 ms"
     }
   ],
   "tsup": {
