@@ -1,5 +1,7 @@
 
 
+## [0.2.3](https://github.com/TazDeCoder/glow-mui3/compare/0.2.1...0.2.3) (2023-02-16)
+
 ## [0.2.2](https://github.com/TazDeCoder/glow-mui3/compare/0.2.1...0.2.2) (2023-02-16)
 
 ## [0.2.1](https://github.com/TazDeCoder/glow-mui3/compare/0.2.0...0.2.1) (2023-01-13)
