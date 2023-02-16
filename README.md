@@ -10,7 +10,7 @@ The aim of this project is to adapt (not adopt) upon the design principles of Ma
 
 - **Glow.** Adoptation of the **"glow effect"** for our components as a design style choice, hence the name of this package :¬)
 - **Themeable.** Embrace the nature of [Theme UI](https://github.com/system-ui/theme-ui) which supports theme-aware driven styles so you can build custom themes on the fly
-- **Lightweight.** Package size is only 18 kB (minified and gzipped). We use [Size Limit](https://github.com/ai/size-limit) to control the size
+- **Lightweight.** Package size is only **~40 kB** (minified and gzipped). We use [Size Limit](https://github.com/ai/size-limit) to control the size
 
 ## Install
 
@@ -25,11 +25,11 @@ Make sure your project meets the following requirements in order for the package
 ### Run
 
 ```sh
-$ npm install glow-mui3 theme-ui @emotion/react // optional @fontsource/roboto
+$ npm install glow-mui3 theme-ui @emotion/react @fontsource/roboto
 ```
 
 ```sh
-$ yarn add glow-mui3 theme-ui @emotion/react // optional @fontsource/roboto
+$ yarn add glow-mui3 theme-ui @emotion/react @fontsource/roboto
 ```
 
 ### Usage
