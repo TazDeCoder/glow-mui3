@@ -40,7 +40,7 @@ const __labelCss: ThemeUICSSObject = {
   borderBottom: '1px solid currentColor',
   borderTopLeftRadius: 'xs',
   borderTopRightRadius: 'xs',
-  '&:hover::after': {
+  '&:hover::before': {
     content: '""',
     position: 'absolute',
     top: 0,

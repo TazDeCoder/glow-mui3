@@ -34,7 +34,7 @@ exports[`<TextField /> Snapshots renders correctly 1`] = `
   background-color: surface.main;
 }
 
-.emotion-0:hover::after {
+.emotion-0:hover::before {
   content: "";
   position: absolute;
   top: 0;
