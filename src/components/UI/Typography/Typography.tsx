@@ -16,9 +16,9 @@ export interface TypographyProps
   /** Text variant of the component
    * @default 'body'
    */
-  variant?: 'headline' | 'body' | 'label';
+  variant?: 'headline' | 'title' | 'body' | 'label';
   /** Text size of the component
-   * @default 'md'
+   * @default 'lg'
    */
   size?: 'sm' | 'md' | 'lg';
 }
@@ -39,11 +39,20 @@ export const Typography: ForwardRef<HTMLParagraphElement, TypographyProps> =
       let Component: React.ElementType = as || 'p';
 
       if (!as) {
-        if (variant === 'headline') {
+        if (variant === 'headline' || variant === 'title') {
+          if (size === 'lg') {
+            Component = 'h1';
+          }
+
+          if (size === 'md') {
+            Component = 'h2';
+          }
+
           if (size === 'sm') {
             Component = 'h3';
           }
         }
+
         if (variant === 'label') {
           Component = 'span';
         }
