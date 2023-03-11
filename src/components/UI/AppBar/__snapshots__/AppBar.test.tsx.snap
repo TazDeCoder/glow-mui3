@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppBar /> Snapshots renders correctly 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  position: relative;
+  display: grid;
+  min-height: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: surface.onMain;
+  background-color: surface.main;
+  box-shadow: unset;
+  grid-template-columns: auto 1fr auto;
+  place-items: center;
+}
+
+.emotion-0::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: surface.tint;
+  opacity: tint;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: primary.main;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  color: surface.onMain;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+<div>
+  <header
+    class="emotion-0"
+  >
+    <h1
+      class="emotion-1"
+    >
+      Foo
+    </h1>
+  </header>
+</div>
+`;
