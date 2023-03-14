@@ -10,10 +10,26 @@ export default {
   },
   letterSpacings: [0, 0.1, 0.15, 0.25, 0.4, 0.5],
   headline: {
+    md: {
+      fontFamily: 'body',
+      lineHeight: 4,
+      fontSize: 6,
+      letterSpacing: 3,
+      fontWeight: 'normal',
+    },
     sm: {
       fontFamily: 'body',
       lineHeight: 4,
       fontSize: 5,
+      letterSpacing: 0,
+      fontWeight: 'normal',
+    },
+  },
+  title: {
+    lg: {
+      fontFamily: 'body',
+      lineHeight: 3,
+      fontSize: 4,
       letterSpacing: 0,
       fontWeight: 'normal',
     },

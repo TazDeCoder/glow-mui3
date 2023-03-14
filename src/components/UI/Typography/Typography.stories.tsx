@@ -6,9 +6,6 @@ import { Flex } from '../../Utils';
 export default {
   title: 'Components/UI/Typography',
   component: Typography,
-  argTypes: {
-    onClick: { action: 'clicked' },
-  },
 } as ComponentMeta<typeof Typography>;
 
 export const Default: ComponentStory<typeof Typography> = (args) => (
@@ -17,8 +14,14 @@ export const Default: ComponentStory<typeof Typography> = (args) => (
 
 export const Variants: ComponentStory<typeof Typography> = (args) => (
   <Flex flexDirection="column" gap={2}>
+    <Typography {...args} variant="headline" size="md">
+      Headline Medium
+    </Typography>
     <Typography {...args} variant="headline" size="sm">
       Headline Small
+    </Typography>
+    <Typography {...args} variant="title" size="lg">
+      Title Large
     </Typography>
     <Typography {...args} variant="body" size="lg">
       Body Large
