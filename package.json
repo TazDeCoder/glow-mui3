@@ -70,7 +70,7 @@
     "glob-parent": "^6.0.0",
     "parse-url": "^8.1.0",
     "trim": "^1.0.0",
-    "trim-newlines": "^4.0.0"
+    "trim-newlines": "^5.0.0"
   },
   "dependencies": {
     "@emotion/react": "11.10.6",
