@@ -1,35 +1,19 @@
-import "@fontsource/roboto";
-
+import '@fontsource/roboto';
 import { useEffect } from 'react';
-import addons from '@storybook/addons';
+import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
-import { addDecorator } from '@storybook/react';
+import { useColorMode, ColorModeProvider } from '@theme-ui/color-modes';
 import { ThemeProvider } from '@theme-ui/core';
-import { ColorModeProvider, useColorMode } from '@theme-ui/color-modes';
-import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 
 import { defaultTheme } from '../src/themes';
 
-const channel = addons.getChannel();
-
 const ThemeChanger = () => {
   const [, setColorMode] = useColorMode();
-
-  const toggleDarkModeHandler = (isDark) => {
-    setColorMode(isDark ? 'dark' : 'light');
-  };
+  const isDarkMode = useDarkMode();
 
   useEffect(() => {
-    setColorMode('dark');
-  }, []);
-
-  useEffect(() => {
-    channel.on(DARK_MODE_EVENT_NAME, toggleDarkModeHandler);
-
-    return () => {
-      channel.off(DARK_MODE_EVENT_NAME);
-    };
-  }, [channel]);
+    setColorMode(isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
   return <></>;
 };
@@ -45,7 +29,7 @@ const ThemeDecorator = (storyFn) => {
   );
 };
 
-addDecorator(ThemeDecorator);
+export const decorators = [ThemeDecorator];
 
 export const parameters = {
   darkMode: {

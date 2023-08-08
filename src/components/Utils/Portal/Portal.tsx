@@ -25,5 +25,6 @@ export const Portal: React.FC<PortalProps> = ({ children, node }) => {
     };
   }, [node, defaultNode]);
 
+  // @ts-ignore
   return createPortal(children, defaultNode);
 };
