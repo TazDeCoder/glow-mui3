@@ -74,7 +74,7 @@
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
-    "@fontsource/roboto": "4.5.8",
+    "@fontsource/roboto": "5.0.8",
     "@theme-ui/color-modes": "0.16.0",
     "@theme-ui/core": "0.16.0",
     "@theme-ui/css": "0.16.0",
