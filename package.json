@@ -135,7 +135,7 @@
     "storybook": "7.2.1",
     "storybook-dark-mode": "3.0.1",
     "ts-jest": "29.1.1",
-    "tsup": "6.7.0",
+    "tsup": "7.2.0",
     "typescript": "5.1.6"
   },
   "peerDependencies": {
